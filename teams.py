@@ -62,22 +62,37 @@ def update_team():
     print("Empty value = unchanged \n")
 
     updated_name = check_string("New name: ", is_empty=True)
+    if updated_name is None:
+        print("Cancelled")
+        return
     if updated_name == "":
         updated_name = chosen["name"]
 
     updated_league = check_string("New league: ", is_empty=True)
+    if updated_league is None:
+        print("Cancelled")
+        return
     if updated_league == "":
         updated_league = chosen["league"]
 
     updated_founded = check_number("New founded: ", is_empty=True)
+    if updated_founded is None:
+        print("Cancelled")
+        return
     if updated_founded == "":
         updated_founded = chosen["founded"]
 
     updated_city = check_string("New city: ", is_empty=True)
+    if updated_city is None:
+        print("Cancelled")
+        return
     if updated_city == "":
         updated_city = chosen["city"]
 
     updated_championships = check_array("New array: ", is_empty=True)
+    if updated_championships is None:
+        print("Cancelled")
+        return
     if updated_championships == "":
         updated_championships = chosen["championships"]
 

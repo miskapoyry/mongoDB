@@ -16,7 +16,7 @@ def menu():
             7. Update existing match
             8. Delete existing match
               
-            "q" to quit
+            "q" to go back
             """)
         
         choice = input("Choice : ")
