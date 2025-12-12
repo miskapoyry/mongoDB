@@ -1,4 +1,4 @@
-from db_connection import teams_collection  
+from db_connection import teams_collection, matches_collection
 from funcions import check_array, check_number, check_string
 
 def create_team():
@@ -120,8 +120,10 @@ def delete_team():
     chosen = teams[index]
 
     delete_result = teams_collection.delete_one({"_id": chosen["_id"]})
-    if delete_result.deleted_count == 1:
-        print("Deletion was successful")
+    delete_matches = matches_collection.delete_many({"team_id": chosen["_id"]})
+
+    if delete_result.deleted_count == 1 and delete_matches.deleted_count == 1:
+        print("Deletion was successful, all the matches were deleted too.")
     else:
         print("Unexpected Error Occured")
 
