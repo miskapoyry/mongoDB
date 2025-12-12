@@ -8,6 +8,11 @@ def create_match():
         print(f"{num}. {team["name"]}")
 
     team_num = check_number("Select team number to update: ", is_empty=False)
+
+    if team_num is None:
+        print("Cancelled")
+        return
+    
     index = team_num - 1
     chosen = teams[index]
     team_id = chosen["_id"]
@@ -71,7 +76,7 @@ def read_match():
             Match Date:     {match["date"]}
             Opponent:       {match["opponent"]}
             Home:           {match["home"]}
-            Score:          {match["score"]["team"]} - {match["score"]["team"]}
+            Score:          {match["score"]["team"]} - {match["score"]["opponent"]}
             Result:         {match["result"]}
             """)
 
